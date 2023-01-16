@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Label text="Game Editor" display-tooltip-when-elided="true" style="width: 394px; height: 65px; font-size: 50px; opacity: 1; -unity-font-style: bold-and-italic;" />
+    <ui:Label text="Options for Player Health" display-tooltip-when-elided="false" enable-rich-text="true" style="-unity-font-style: bold-and-italic;" />
+    <ui:RadioButtonGroup value="-1" choices="Normal,Invincible" name="PlayerHealth" />
+    <ui:SliderInt picking-mode="Ignore" label="Health" value="42" high-value="100" binding-path="playerHealth" show-input-field="true" />
+    <ui:VisualElement style="height: 274px;" />
+</ui:UXML>

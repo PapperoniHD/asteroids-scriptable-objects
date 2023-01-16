@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Asteroid
   - Laser
+  - GameManager
   layers:
   - Default
   - TransparentFX
