@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace.ScriptableEvents;
 using UnityEngine;
 using Variables;
@@ -9,8 +10,14 @@ namespace Ship
         //[SerializeField] private IntVariable _health;
         [SerializeField] private ScriptableEventIntReference _onHealthChangedEvent;
         [SerializeField] private IntReference _healthRef;
-        [SerializeField] private IntObservable _healthObservable;
-        
+        [SerializeField] public IntObservable _healthObservable;
+
+        private void Start()
+        {
+            _healthObservable.ApplyChange(GameManager.GM.playerHealth);
+            
+        }
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (string.Equals(other.gameObject.tag, "Asteroid"))

@@ -5,19 +5,19 @@ namespace Ship
 {
     public class Health : MonoBehaviour
     {
-        private int _health = 10;
+        private int _health = 15;
         
         private const int MIN_HEALTH = 0;
 
-        private void Update()
+        private void Start()
         {
-            _health = GameManager.GM.playerHealth;
+            
         }
 
         public void TakeDamage(int damage)
         { 
             Debug.Log("Took some damage");
-            GameManager.GM.playerHealth = Mathf.Max(MIN_HEALTH, _health - damage);
+            _health = Mathf.Max(MIN_HEALTH, _health - damage);
         }
     }
 }

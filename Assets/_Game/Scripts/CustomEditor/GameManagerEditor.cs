@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -12,9 +13,19 @@ public class GameManagerEditor : Editor
     public override VisualElement CreateInspectorGUI()
     {
         var root = new VisualElement();
+        m_UXML = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/GameManagerEditor.uxml");
         if (m_UXML != null) m_UXML.CloneTree(root);
 
+        
+
         InspectorElement.FillDefaultInspector(root, serializedObject, this);
+        
         return root;
+    }
+
+
+    private void OnEnable()
+    {
+
     }
 }

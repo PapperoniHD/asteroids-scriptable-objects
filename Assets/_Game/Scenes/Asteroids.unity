@@ -251,7 +251,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20ee36aaca94794586dba44094663d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 80
+  playerHealth: 100
+  hullScript: {fileID: 0}
+  colActive: 1
+  collision: {fileID: 0}
+  throttlePower: 7
+  rotationPower: 3
+  spawnTime: 4
+  spawnAmount: 2
 --- !u!1 &1867257715
 GameObject:
   m_ObjectHideFlags: 0

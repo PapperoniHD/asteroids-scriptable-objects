@@ -17,12 +17,23 @@ public class GameManagerWindow : EditorWindow
         var window = GetWindow<GameManagerWindow>();
         window.titleContent = new GUIContent("Game Editor");
     }
-
+    
     public void OnEnable()
     {
         m_GameManager = GameObject.FindGameObjectsWithTag("GameManager").FirstOrDefault()?.GetComponent<GameManager>();
-    }
+        
+        
+        var root = rootVisualElement;
 
+        var button = root.Q<Button>("Default");
+        
+        button.clickable.clicked += () =>
+        {
+            m_GameManager.ResetDefault();
+        };
+    }
+    
+    
     public void CreateGUI()
     {
         if (m_GameManager == null)
@@ -33,5 +44,7 @@ public class GameManagerWindow : EditorWindow
         var scrollView = new ScrollView() { viewDataKey = "WindowsScrollView" };
         scrollView.Add(new InspectorElement(m_GameManager));
         rootVisualElement.Add(scrollView);
+        
+        
     }
 }
