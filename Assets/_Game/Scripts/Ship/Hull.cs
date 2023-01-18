@@ -11,11 +11,13 @@ namespace Ship
         [SerializeField] private ScriptableEventIntReference _onHealthChangedEvent;
         [SerializeField] private IntReference _healthRef;
         [SerializeField] public IntObservable _healthObservable;
+        [SerializeField] private GameManager gmSettings;
 
-        private void Start()
+        private void Awake()
         {
-            _healthObservable.ApplyChange(GameManager.GM.playerHealth);
-            
+            //_healthObservable.ApplyChange(gmSettings.playerHealth);
+            _healthObservable.SetValue(gmSettings.playerHealth);
+            _healthRef.SetValue(gmSettings.playerHealth);
         }
 
         private void OnCollisionEnter2D(Collision2D other)

@@ -7,11 +7,12 @@ namespace Ship
     [RequireComponent(typeof(Rigidbody2D))]
     public class Engine : MonoBehaviour
     {
-        [SerializeField] public FloatVariable _throttlePower;
-        [SerializeField] public FloatVariable _rotationPower;
+        //[SerializeField] public FloatVariable _throttlePower;
+        //[SerializeField] public FloatVariable _rotationPower;
         
         [SerializeField] private float _throttlePowerSimple;
         [SerializeField] private float _rotationPowerSimple;
+        [SerializeField] private GameManager gmSettings; 
 
         private Rigidbody2D _rigidbody;
         
@@ -39,17 +40,17 @@ namespace Ship
     
         public void Throttle()
         {
-            _rigidbody.AddForce(transform.up * GameManager.GM.throttlePower, ForceMode2D.Force);
+            _rigidbody.AddForce(transform.up * gmSettings.throttlePower, ForceMode2D.Force);
         }
 
         public void SteerLeft()
         {
-            _rigidbody.AddTorque(GameManager.GM.rotationPower, ForceMode2D.Force);
+            _rigidbody.AddTorque(gmSettings.rotationPower, ForceMode2D.Force);
         }
 
         public void SteerRight()
         {
-            _rigidbody.AddTorque(-GameManager.GM.rotationPower, ForceMode2D.Force);
+            _rigidbody.AddTorque(-gmSettings.rotationPower, ForceMode2D.Force);
         }
         
     }

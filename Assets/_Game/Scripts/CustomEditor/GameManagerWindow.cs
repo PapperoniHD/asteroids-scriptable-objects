@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 
 public class GameManagerWindow : EditorWindow
 {
+    public VisualTreeAsset m_UXML;
     [SerializeField] private GameManager m_GameManager;
     
     [MenuItem("Gabriel/Game Editor")]
@@ -16,21 +17,23 @@ public class GameManagerWindow : EditorWindow
     {
         var window = GetWindow<GameManagerWindow>();
         window.titleContent = new GUIContent("Game Editor");
+        window.minSize = new Vector2(460, 450);
+        window.maxSize = new Vector2(460, 450);
     }
     
     public void OnEnable()
     {
-        m_GameManager = GameObject.FindGameObjectsWithTag("GameManager").FirstOrDefault()?.GetComponent<GameManager>();
-        
-        
-        var root = rootVisualElement;
+        m_UXML ??= AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/GameManagerEditor.uxml");
+        m_GameManager ??= Resources.Load<GameManager>("GameManagerSO");
 
-        var button = root.Q<Button>("Default");
-        
-        button.clickable.clicked += () =>
+        var gameManagerObj = new SerializedObject(m_GameManager);
+
+        rootVisualElement.Bind(gameManagerObj);
+
+        /*button.clickable.clicked += () =>
         {
             m_GameManager.ResetDefault();
-        };
+        };*/
     }
     
     
@@ -41,9 +44,18 @@ public class GameManagerWindow : EditorWindow
             return;
         }
 
-        var scrollView = new ScrollView() { viewDataKey = "WindowsScrollView" };
+        var root = new VisualElement();
+       // m_UXML ??= AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/GameManagerEditor.uxml");
+        rootVisualElement.Add(root);
+        if (m_UXML != null) m_UXML.CloneTree(root);
+
+        root.Q<Button>("Default").clicked += m_GameManager.ResetDefault;
+
+        //InspectorElement.FillDefaultInspector(root, serializedObject, this);
+
+        /*var scrollView = new ScrollView() { viewDataKey = "WindowsScrollView" };
         scrollView.Add(new InspectorElement(m_GameManager));
-        rootVisualElement.Add(scrollView);
+        rootVisualElement.Add(scrollView);*/
         
         
     }

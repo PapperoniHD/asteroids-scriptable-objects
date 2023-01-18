@@ -14,8 +14,15 @@ namespace Variables
 
         public IntReference(IntVariable variable)
         {
+          
             _intVariable = variable;
             _useSimple = false;
+        }
+
+        public void SetValue(int value)
+        {
+            _simpleValue = value;
+            _intVariable.SetValue(value);
         }
 
         public IntReference(int value)

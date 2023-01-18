@@ -1,16 +1,15 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <ui:Label text="Game Editor" display-tooltip-when-elided="true" style="width: 394px; height: 65px; font-size: 50px; opacity: 1; -unity-font-style: bold-and-italic; background-image: url(&apos;project://database/Assets/_Game/EditorUI/Background2blur.png?fileID=2800000&amp;guid=b9ccbbe0925896a478f576a26bf30a68&amp;type=3#Background2blur&apos;); -unity-background-scale-mode: scale-and-crop;" />
+    <ui:Label text="Game Editor" display-tooltip-when-elided="true" style="width: 461px; height: 65px; font-size: 50px; opacity: 1; -unity-font-style: bold-and-italic; background-image: url(&apos;project://database/Assets/_Game/EditorUI/Background2blur.png?fileID=2800000&amp;guid=b9ccbbe0925896a478f576a26bf30a68&amp;type=3#Background2blur&apos;); -unity-background-scale-mode: scale-and-crop; -unity-text-align: upper-center;" />
     <ui:VisualElement style="height: 24px;" />
     <ui:Label text="Options for Player Health" display-tooltip-when-elided="false" enable-rich-text="true" style="-unity-font-style: bold-and-italic;" />
     <ui:RadioButtonGroup value="-1" choices="Normal,Invincible" name="PlayerHealth" style="height: 42px; width: 294px;" />
     <ui:SliderInt picking-mode="Ignore" label="Health" value="42" high-value="100" binding-path="playerHealth" show-input-field="true" tooltip="Sets Health value on Start, default value = 10" style="align-items: flex-start; justify-content: space-between; flex-direction: column; height: 53px; width: 211px;" />
     <ui:Toggle label="Collisions" value="true" binding-path="colActive" style="height: 17px; width: 170px; flex-direction: row-reverse; position: absolute; top: 167px; left: 224px;" />
     <ui:Label text="Options for Ship Engine" display-tooltip-when-elided="false" enable-rich-text="true" style="-unity-font-style: bold-and-italic;" />
-    <ui:Slider picking-mode="Ignore" label="Throttle Power" value="7" high-value="10" show-input-field="true" binding-path="test" tooltip="Sets throttle power on start, default = 7" style="height: 31px; width: 210px; flex-direction: column;" />
+    <ui:Slider picking-mode="Ignore" label="Throttle Power" value="7" high-value="10" show-input-field="true" binding-path="throttlePower" tooltip="Sets throttle power on start, default = 7" style="height: 31px; width: 210px; flex-direction: column;" />
     <ui:Slider picking-mode="Ignore" label="Rotation Power" value="3" high-value="10" show-input-field="true" binding-path="rotationPower" tooltip="Sets rotation power on start, default = 3" style="height: 31px; width: 210px; flex-direction: column; position: absolute; top: 219px; left: 224px;" />
     <ui:Label text="Options for Asteroids" display-tooltip-when-elided="false" enable-rich-text="true" style="-unity-font-style: bold-and-italic;" />
     <ui:SliderInt picking-mode="Ignore" label="Asteroid Amount" value="2" high-value="50" show-input-field="true" tooltip="Sets Asteroid spawn amount, default = 2" binding-path="spawnAmount" style="align-items: flex-start; justify-content: space-between; flex-direction: column; height: 53px; width: 211px;" />
     <ui:SliderInt picking-mode="Ignore" label="Asteroid Spawn Time" value="4" high-value="50" show-input-field="true" tooltip="Sets Asteroid spawn time, default =  4" binding-path="spawnTime" inverted="false" style="align-items: flex-start; justify-content: space-between; flex-direction: column; height: 53px; width: 211px; position: absolute; top: 267px; left: 221px;" />
-    <ui:VisualElement style="height: 274px;" />
-    <ui:Button text="Reset to default" display-tooltip-when-elided="true" focusable="true" enable-rich-text="true" tooltip="Resets values to default value" />
+    <ui:Button text="Reset to default" display-tooltip-when-elided="true" focusable="true" enable-rich-text="true" tooltip="Resets values to default value" name="Default" />
 </ui:UXML>

@@ -5,10 +5,10 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-[CustomEditor(typeof(GameManager))]
+//[CustomEditor(typeof(GameManager))]
 public class GameManagerEditor : Editor
 {
-    public VisualTreeAsset m_UXML;
+    /*public VisualTreeAsset m_UXML;
     
     public override VisualElement CreateInspectorGUI()
     {
@@ -27,5 +27,5 @@ public class GameManagerEditor : Editor
     private void OnEnable()
     {
 
-    }
+    }*/
 }
