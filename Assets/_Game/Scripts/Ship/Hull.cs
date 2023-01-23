@@ -20,9 +20,14 @@ namespace Ship
             _healthRef.SetValue(gmSettings.playerHealth);
         }
 
+        private void Update()
+        {   
+            GetComponentInChildren<PolygonCollider2D>().enabled = gmSettings.colActive;   
+        }
+
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (string.Equals(other.gameObject.tag, "Asteroid"))
+            if (string.Equals(other.gameObject.tag, "Asteroid") && !gmSettings.godMode)
             {
                 Debug.Log("Hull collided with Asteroid");
                 // TODO can we bake this into one call?

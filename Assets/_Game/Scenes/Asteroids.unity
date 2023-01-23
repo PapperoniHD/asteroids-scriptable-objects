@@ -241,6 +241,7 @@ MonoBehaviour:
   _maxSpawnTime: 4
   _minAmount: 1
   _maxAmount: 2
+  gmSettings: {fileID: 11400000, guid: 7dce9e9027c77ff41b2838af2504ad03, type: 2}
 --- !u!4 &1867257717
 Transform:
   m_ObjectHideFlags: 0

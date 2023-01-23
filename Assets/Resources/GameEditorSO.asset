@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 10
   colActive: 1
+  godMode: 0
   throttlePower: 7
   rotationPower: 3
   spawnTime: 4

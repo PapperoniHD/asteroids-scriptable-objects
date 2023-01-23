@@ -12,6 +12,7 @@ public class GameManager : ScriptableObject
     //Health
     public int playerHealth;
     public bool colActive;
+    public bool godMode;
     //public PolygonCollider2D collision;
 
     //Ship Engine
@@ -45,7 +46,13 @@ public class GameManager : ScriptableObject
         rotationPower = 3;
         spawnTime = 4;
         spawnAmount = 2;
+        godMode = false;
 
+    }
+
+    public void ResetPos()
+    {
+        FindObjectOfType<Hull>().gameObject.transform.position = new Vector3(0f, 0f, 0f);
     }
     
     

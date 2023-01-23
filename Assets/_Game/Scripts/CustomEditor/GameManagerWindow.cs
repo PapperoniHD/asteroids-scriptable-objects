@@ -50,13 +50,14 @@ public class GameManagerWindow : EditorWindow
         if (m_UXML != null) m_UXML.CloneTree(root);
 
         root.Q<Button>("Default").clicked += m_GameManager.ResetDefault;
+        root.Q<Button>("ResetPos").clicked += m_GameManager.ResetPos;
 
         //InspectorElement.FillDefaultInspector(root, serializedObject, this);
 
         /*var scrollView = new ScrollView() { viewDataKey = "WindowsScrollView" };
         scrollView.Add(new InspectorElement(m_GameManager));
         rootVisualElement.Add(scrollView);*/
-        
-        
+
+
     }
 }

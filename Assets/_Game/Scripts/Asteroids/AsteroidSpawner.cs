@@ -11,6 +11,7 @@ namespace Asteroids
         [SerializeField] private float _maxSpawnTime;
         [SerializeField] private int _minAmount;
         [SerializeField] private int _maxAmount;
+        [SerializeField] private GameManager gmSettings;
         
         private float _timer;
         private float _nextSpawnTime;
@@ -45,7 +46,7 @@ namespace Asteroids
 
         private void UpdateNextSpawnTime()
         {
-            _nextSpawnTime = Random.Range(_minSpawnTime, _maxSpawnTime);
+            _nextSpawnTime = Random.Range(_minSpawnTime, gmSettings.spawnTime);
         }
 
         private void UpdateTimer()
@@ -60,7 +61,7 @@ namespace Asteroids
 
         private void Spawn()
         {
-            var amount = Random.Range(_minAmount, _maxAmount + 1);
+            var amount = Random.Range(_minAmount, gmSettings.spawnAmount + 1);
             
             for (var i = 0; i < amount; i++)
             {
